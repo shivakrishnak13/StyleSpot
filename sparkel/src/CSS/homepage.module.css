@@ -1,0 +1,45 @@
+
+
+.banner_div{
+    width: 85%;
+    margin: auto;
+}
+
+.pc_banner{
+   
+    max-width: 100%;
+    height: auto;
+  border-radius: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  
+}
+
+.mobile_banner{
+    display: none;
+}
+
+
+
+
+@media screen and (max-width:642px) {
+
+    .pc_banner{
+   
+       display: none;
+    }
+    
+    .mobile_banner{
+        display: block;
+        border-radius: 10px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        width: 100%;
+
+    }
+
+    .banner_div{
+        width: 85%;
+        margin: auto;
+    }
+
+
+}
