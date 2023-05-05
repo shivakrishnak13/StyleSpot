@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import logo from "../images/StyleSpot editted.png";
 import styled from "styled-components";
 import {
   Tabs,
@@ -12,6 +13,7 @@ import {
 import { MdSpaceDashboard } from "react-icons/md";
 import { IoMdAddCircle } from "react-icons/io";
 import { DiGoogleAnalytics } from "react-icons/di";
+import { HiOutlineLogout } from "react-icons/hi";
 import { RiAdminFill, RiShoppingCartFill } from "react-icons/ri";
 import { BsPencilSquare, BsPersonFillAdd } from "react-icons/bs";
 import { useToast } from "@chakra-ui/react";
@@ -29,10 +31,10 @@ import {
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalFooter,
   ModalBody,
   ModalCloseButton,
 } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 export default function Admin() {
   const toast = useToast();
   const initialState = {
@@ -46,18 +48,21 @@ export default function Admin() {
     image1: "",
     image2: "",
   };
+  const url = `http://localhost:3000/products`;
+  const navigate = useNavigate();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [product, setProduct] = useState(initialState);
   const [data, setData] = useState([]);
   const [etitle, setetitle] = useState();
   const [eprice, seteprice] = useState();
   const [ebrand, setebrand] = useState();
+  const [id, setid] = useState(0);
   const formSubmit = (e) => {
     e.preventDefault();
     if (product.category == "") {
       alert("Select Category");
     } else {
-      fetch("https://dapper-precious-sedum.glitch.me/products", {
+      fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -81,7 +86,7 @@ export default function Admin() {
     }
   };
   useEffect(() => {
-    fetch("https://dapper-precious-sedum.glitch.me/products")
+    fetch(url)
       .then((res) => res.json())
       .then((deta) => setData(deta));
   });
@@ -93,18 +98,19 @@ export default function Admin() {
       isClosable: true,
       position: "top-center",
     });
-    fetch(`https://dapper-precious-sedum.glitch.me/products/${e}`, {
+    fetch(`${url}/${e}`, {
       method: "DELETE",
     });
   };
   const Aa = (e) => {
-    fetch(`https://dapper-precious-sedum.glitch.me/products/${e}`)
+    fetch(`${url}/${e}`)
       .then((res) => res.json())
       .then((data) => {
         setetitle(data.title);
         setebrand(data.brand);
         seteprice(data.price);
       });
+    setid(e);
   };
   const onedit = (e) => {
     e.preventDefault();
@@ -113,11 +119,13 @@ export default function Admin() {
       price: +eprice,
       brand: ebrand,
     };
-    fetch(`https://dapper-precious-sedum.glitch.me/products/${e}`, {
+    console.log(obj);
+    fetch(`${url}/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(obj),
     });
+    onClose();
     toast({
       position: "top-center",
       title: "Data has been updated",
@@ -144,6 +152,7 @@ export default function Admin() {
               gap: "3%",
             }}
           >
+            <img src={logo} alt="" onClick={()=>navigate('/')} style={{cursor:"pointer"}}/>
             <Tab className="tab">
               <MdSpaceDashboard />
               Dashboard
@@ -171,6 +180,10 @@ export default function Admin() {
             <Tab className="tab">
               <DiGoogleAnalytics />
               Analyse
+            </Tab>
+            <Tab className="tab"  onClick={()=>navigate('/')}>
+              <HiOutlineLogout />
+              Logout
             </Tab>
           </TabList>
           <TabPanels sx={{ margin: "1%" }}>
@@ -325,8 +338,23 @@ export default function Admin() {
                   <ModalHeader>Edit Product</ModalHeader>
                   <ModalCloseButton />
                   <ModalBody>
-                    <form action="" onSubmit={formSubmit} id="form">
+                    <form
+                      action=""
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "10px",
+                      }}
+                    >
                       <input
+                        style={{
+                          width: "35%;",
+                          border: "2px solid black",
+                          height: " 60px",
+                          padding: "10px",
+                          fontSize: "18px",
+                          borderRadius: " 5px",
+                        }}
                         required
                         type="text"
                         value={etitle}
@@ -334,6 +362,14 @@ export default function Admin() {
                         onChange={(e) => setetitle(e.target.value)}
                       />
                       <input
+                        style={{
+                          width: "35%;",
+                          border: "2px solid black",
+                          height: " 60px",
+                          padding: "10px",
+                          fontSize: "18px",
+                          borderRadius: " 5px",
+                        }}
                         required
                         type="text"
                         value={ebrand}
@@ -341,13 +377,34 @@ export default function Admin() {
                         onChange={(e) => setebrand(e.target.value)}
                       />
                       <input
+                        style={{
+                          width: "35%;",
+                          border: "2px solid black",
+                          height: " 60px",
+                          padding: "10px",
+                          fontSize: "18px",
+                          borderRadius: " 5px",
+                        }}
                         required
                         type="text"
                         placeholder="Price"
                         value={eprice}
                         onChange={(e) => seteprice(e.target.value)}
                       />
-                      <Button variant="ghost" onClick={onedit}>
+                      <Button
+                        variant="ghost"
+                        onClick={onedit}
+                        sx={{
+                          backgroundColor: "#bee3f8",
+                          fontSize: "18px",
+                          color: "#2c5282",
+                          borderRadius: "20px",
+                          fontWeight: "700",
+                          width: "50%",
+                          padding: "5px 20px 5px 20px",
+                          margin: "auto",
+                        }}
+                      >
                         Edit
                       </Button>
                     </form>
@@ -375,6 +432,14 @@ const DIV = styled.div`
     align-items: center;
     gap: 10px;
     height: 80vh;
+    button {
+      background-color: #bee3f8;
+      font-size: 18px;
+      color: #2c5282;
+      border-radius: 20px;
+      font-weight: 700;
+      padding: 5px 20px 5px 20px;
+    }
     input,
     select {
       width: 35%;
@@ -383,14 +448,6 @@ const DIV = styled.div`
       padding: 10px;
       font-size: 18px;
       border-radius: 5px;
-    }
-    button {
-      background-color: #bee3f8;
-      font-size: 18px;
-      color: #2c5282;
-      border-radius: 20px;
-      font-weight: 700;
-      padding: 5px 20px 5px 20px;
     }
   }
   #edit {

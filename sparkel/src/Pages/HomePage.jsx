@@ -26,10 +26,6 @@ import { FreeMode, Pagination } from "swiper";
 import "../index.css";
 
 const HomePage = () => {
-
-
-
-
   return (
     <div>
       <Navbar />
