@@ -4,7 +4,9 @@ import { useForm } from "react-hook-form";
 import { RiErrorWarningFill } from "react-icons/ri";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 import { useToast } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 export default function Login() {
+  const navigate = useNavigate();
   const toast = useToast();
   const {
     register,
@@ -26,7 +28,7 @@ export default function Login() {
         if (Object.keys(data).length === 0) {
           toast({
             title: "Account Not Found",
-            description:"Create a new account",
+            description: "Create a new account",
             position: "top-center",
             status: "error",
             duration: 2000,
@@ -49,7 +51,7 @@ export default function Login() {
               duration: 2000,
               isClosable: true,
             });
-            document.getElementById("loginform").reset()
+            document.getElementById("loginform").reset();
           }
         }
       });
@@ -75,7 +77,7 @@ export default function Login() {
       duration: 2000,
       isClosable: true,
     });
-    document.getElementById("ca").reset()
+    document.getElementById("ca").reset();
   };
   return (
     <DIV>
@@ -131,6 +133,20 @@ export default function Login() {
                   <RiErrorWarningFill /> Password must be 6 characters
                 </p>
               )}
+              <small
+                style={{
+                  margin: "auto",
+                  padding: "10px",
+                  fontSize: "16px",
+                  color: "#f76f22",
+                  fontWeight: "bold",
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                }}
+                onClick={() => navigate("/admin")}
+              >
+                Login As Admin
+              </small>
               <input type="submit" />
             </form>
           </TabPanel>
@@ -141,6 +157,7 @@ export default function Login() {
                 autoComplete="off"
                 {...register("Name", {
                   required: true,
+                  autoComplete: "off",
                   maxLength: 20,
                   minLength: 3,
                   pattern: /^[A-Za-z]+$/i,
@@ -228,7 +245,6 @@ const DIV = styled.div`
   align-items: center;
   #modal {
     border: 2px solid white;
-    /* height: 60%; */
     padding: 20px;
     width: 30%;
     display: flex;
@@ -269,6 +285,7 @@ const DIV = styled.div`
         font-weight: 700;
         height: 40px;
         padding: 0px;
+        cursor: pointer;
       }
       caret-color: #f76f22;
       p {
@@ -278,6 +295,26 @@ const DIV = styled.div`
         padding-bottom: 5px;
         color: red;
       }
+    }
+  }
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+    #modal {
+      width: 40%;
+    }
+  }
+  @media screen and (min-width: 481px) and (max-width: 768px) {
+    #modal {
+      width: 60%;
+    }
+  }
+  @media screen and (min-width: 320px) and (max-width: 480px) {
+    #modal {
+      width: 90%;
+    }
+  }
+  @media screen and (min-width: 0px) and (max-width: 320px) {
+    #modal {
+      width: 100%;
     }
   }
 `;

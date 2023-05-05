@@ -1,0 +1,49 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": [
+    
+  ],
+  "products": [
+    {
+      "title": "Ethnic Motifs Embroidered Sequined Kurta with Palazzos & Dupatta",
+      "category": "Kurtas",
+      "price": 556,
+      "brand": "Khushal K",
+      "image": "https://assets.ajio.com/medias/sys_master/root/20230217/JiPq/63efa070aeb26924e37781c9/-473Wx593H-420323583-navy-MODEL4.jpg",
+      "rating": "4",
+      "image1": "https://assets.ajio.com/medias/sys_master/root/20230217/c4IN/63efa863aeb26924e377a830/-473Wx593H-420323583-navy-MODEL.jpg",
+      "image2": "https://assets.ajio.com/medias/sys_master/root/20230217/lRdZ/63efb294f997dde6f4aeb8cb/-473Wx593H-420323583-navy-MODEL2.jpg",
+      "gender": "women",
+      "discount": 30,
+      "offer_price": 334,
+      "id": 1
+    },
+    {
+      "title": "Leaf Print Flared Kurta",
+      "category": "Kurtas",
+      "price": 2291,
+      "brand": "KIMAYRA",
+      "image": "https://assets.ajio.com/medias/sys_master/root/20221212/z7gf/63976868aeb269659ce47368/-473Wx593H-465425434-pink-MODEL2.jpg",
+      "rating": "3",
+      "image1": "https://assets.ajio.com/medias/sys_master/root/20221212/Ygku/63976868aeb269659ce4736b/-473Wx593H-465425434-pink-MODEL4.jpg",
+      "image2": "https://assets.ajio.com/medias/sys_master/root/20221212/TNVS/63976868aeb269659ce47378/-473Wx593H-465425434-pink-MODEL6.jpg",
+      "gender": "women",
+      "discount": 30,
+      "offer_price": 1540,
+      "id": 2
+    }
+  ]
+}
