@@ -1,34 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Grandstander&display=swap');
 
-
-.banner_div{
+.Main_div {
     width: 85%;
     margin: auto;
 }
 
-.pc_banner{
-   
+.pc_banner {
+
     max-width: 100%;
     height: auto;
-  border-radius: 10px;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  
+    border-radius: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
 }
 
-.mobile_banner{
+.mobile_banner {
     display: none;
 }
 
+.categories {
+    margin-top: 20px;
+
+    border-top: 1px solid #C4C4C4;
+    border-bottom: 1px solid #C4C4C4;
+
+}
 
 
+.categories_options {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    min-width: max-content;
+    margin-left: 20px;
+    align-items: center;
+    font-family: 'Balsamiq Sans', cursive;
+    font-weight: bold;
 
-@media screen and (max-width:642px) {
+}
 
-    .pc_banner{
+.categories_options>img {
+    width: 60px;
+    border-radius: 10px;
+}
+
+.categories_options>p:nth-child(2) {
+    font-size: 15px;
+    margin-left: 8px;
+    margin-right: 4px;
+}
+
+.categories_options>p:nth-child(3) {
+    font-size: 10px;
+    color: #C4C4C4;
+}
+
+.textline {
+    width: 80%;
+    margin: auto;
+    margin-top: 60px;
+    font-weight: bolder;
+    font-size: 20px;
+    font-family: 'Grandstander', cursive;
+    text-align: center;
+}
+
+.bylogo>div {
+    width: 10%;
+    height: 0;
+    border: 0.2px solid black;
+}
+
+
+.bylogo {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    position: relative;
+    bottom: 5px;
+}
+
+.bylogo>img {
+    width: 25px;
+    margin-left: 10px;
+
+}
+
+.newproducts {
+
+    width: 85%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.year {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.year>h1 {
+    font-size: 35px;
+    font-weight: 600;
+    font-family: 'Grandstander', cursive;
+    color: black;
+}
+
+.year>button {
+    background-color: black;
+    color: white;
+    font-family: 'Balsamiq Sans', cursive;
+    width: 150px;
+    /* height: 45px; */
+    border-radius: 30px;
+}
+.year>button:hover{
+ background-color: white;
+ color: black;
+ box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.singleproduct {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 100%;
    
-       display: none;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+}
+
+.singleproduct>div>img {
+    width: fit-content;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+   
+}
+
+
+
+.singleproduct>p {
+    text-align: start;
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+.singleproduct>p:nth-child(2) {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 10px;
+
+}
+
+.singleproduct>p:nth-child(3) {
+    font-size: 15px;
+    color: #FB7123;
+
+}
+
+
+
+.swiper_slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.products {
+    margin-top: 30px;
+    border-bottom: 1px solid #c4c4c4;
+    padding-bottom: 20px;
+}
+
+
+@media screen and (max-width:1024px) {
+    .singleproduct {
+        width: 100%;
+        
     }
+
+    .year>h1 {
+        font-size: 20px;
+        font-weight: 600;
+        font-family: 'Grandstander', cursive;
+        color: black;
+    }
+
+    .year>button {
+        background-color: black;
+        color: white;
+        font-family: 'Balsamiq Sans', cursive;
+        width: 100px;
+        /* height: 45px; */
+        border-radius: 30px;
+    }
+
+
+    .categories_options {
+        margin-top: 20px;
+        margin-bottom: 15px;
+        display: flex;
+        min-width: max-content;
+        margin-left: 20px;
+        align-items: center;
+        font-family: 'Balsamiq Sans', cursive;
+        font-weight: bold;
+
+    }
+
+    .categories_options>img {
+        width: 50px;
+        border-radius: 10px;
+    }
+
+    .categories_options>p:nth-child(2) {
+        font-size: 12px;
+        margin-left: 5px;
+        margin-right: 3px;
+    }
+
+    .categories_options>p:nth-child(3) {
+        font-size: 8px;
+        color: #C4C4C4;
+    }
+
     
-    .mobile_banner{
+
+}
+
+
+@media screen and (max-width:720px) {
+
+    .pc_banner {
+        display: none;
+    }
+
+    .mobile_banner {
         display: block;
         border-radius: 10px;
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -36,9 +248,15 @@
 
     }
 
-    .banner_div{
-        width: 85%;
+    .banner_div {
+        width: 80%;
         margin: auto;
+
+    }
+
+    .singleproduct {
+        width: 100%;
+        padding: 10px;
     }
 
 

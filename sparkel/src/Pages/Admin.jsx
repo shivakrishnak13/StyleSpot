@@ -65,8 +65,8 @@ export default function Admin() {
           discount: Math.floor(Math.random() * (50 - 20)) + 20,
           offer_price: Math.floor(
             product.price -
-              ((Math.floor(Math.random() * (50 - 20)) + 20) / 100) *
-                product.price
+            ((Math.floor(Math.random() * (50 - 20)) + 20) / 100) *
+            product.price
           ),
         }),
       });
