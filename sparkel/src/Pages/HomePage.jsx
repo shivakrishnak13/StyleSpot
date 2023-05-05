@@ -5,10 +5,6 @@ import mobilebanner from "../images/Mobile banner.png"
 import Navbar from '../Components/Navbar';
 
 const HomePage = () => {
-
-
-
-
   return (
     <div>
       <Navbar />
