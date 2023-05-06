@@ -20,5 +20,14 @@ switch(action.type){
             error:true
         }
     }
+    case 'SUCCESS':{
+        return {
+            ...state,
+            allData:action.payload,
+            loading:false
+        }
+        
+    }
+    default : return state
 }
 }
