@@ -1,11 +1,19 @@
+
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import HomePage from './HomePage'
 import Product from './Product'
 
-const MainRoutes = () => {
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./HomePage";
+import Admin from "./Admin";
+import Login from "./Login";
 
+
+const MainRoutes = () => {
   return (
+
   <Routes>
 <Route path='/' element={<HomePage/>}/>
 <Route path='/about' element={<HomePage/>}/>
@@ -16,6 +24,8 @@ const MainRoutes = () => {
     </Routes>
 
   )
-}
+
+};
+
 
 export default MainRoutes;
