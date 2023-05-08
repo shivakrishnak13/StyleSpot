@@ -1,8 +1,10 @@
-import React from "react";
+
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./HomePage";
+import Product from "./Product";
 import Admin from "./Admin";
 import Login from "./Login";
+
 import Cart from "./Cart"
 import Payment from "./Payment";
 
@@ -18,8 +20,11 @@ const MainRoutes = () => {
       <Route path="/Login" element={<Login />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/payment" element={<Payment />} />
+
     </Routes>
-  );
+  )
+
+
 };
 
 export default MainRoutes;

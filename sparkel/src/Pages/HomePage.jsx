@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from "../CSS/homepage.module.css"
 import pcbanner from "../images/pc banner.png";
 import kids from "../images/kids.png";
@@ -13,22 +13,58 @@ import casual from "../images/casual wear.png";
 import sesonal from "../images/seasonal cat.png";
 import sports from "../images/sportswear cat.png";
 import logo from "../images/only logo h.png"
+import lastposter from "../images/lastposter.png"
+import mobilelastposter from "../images/mobile lastposter.png"
 import mobilebanner from "../images/Mobile banner.png"
 import Navbar from '../Components/Navbar';
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import { FaPlay } from "react-icons/fa"
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
-import { FreeMode, Pagination } from "swiper";
+import { FreeMode } from "swiper";
 
 import "../index.css";
 
+import Footer from '../Components/Footer';
+import axios from 'axios';
+import { Skeleton, SkeletonText,Menu,MenuButton,MenuList,MenuItem } from '@chakra-ui/react';
+
+
+
 const HomePage = () => {
+
+
+  const [Products, setProducts] = useState([]);
+  const [loading, setloading] = useState(true);
+
+  let Skel= new Array(16).fill(0);
+
+  
+
+  function getData() {
+    setloading(true)
+    axios.get("https://dapper-precious-sedum.glitch.me/products?_limit=16").then((res) => {
+      setloading(false)
+      setProducts(res.data)
+    }).catch((err) => {
+      console.log(err)
+    })
+  }
+
+
+  useEffect(() => {
+
+    getData()
+
+  }, [])
+
+
+
+
   return (
     <div>
-      <Navbar />
       <div className={styles.Main_div}>
         <img src={pcbanner} alt="banner" className={styles.pc_banner} />
         <img src={mobilebanner} alt="banner" className={styles.mobile_banner} />
@@ -47,111 +83,111 @@ const HomePage = () => {
 
 
       <div className={styles.categories}>
-<Swiper
-breakpoints={
-  {
-    100:{
-      slidesPerView: 2,
-      spaceBetween: 0,
-    },
-    500:{
-      slidesPerView:4,
-      spaceBetween:10
-    },
-    768:{
-      slidesPerView:5,
-      spaceBetween:20
-    },
-    1024:{
-      slidesPerView:7,
-      spaceBetween:20
-    }
-  }
-}
->
-  <SwiperSlide>
-  <div className={styles.categories_options}>
-          <img src={kids} alt="kids" />
-          <p>Kids Hub</p>
-          <p>2023</p>
-        </div>
-  </SwiperSlide>
-  <SwiperSlide> 
-        <div className={styles.categories_options}>
-          <img src={mens} alt="kids" />
-          <p>Men Style</p>
-          <p>2023</p>
-        </div></SwiperSlide>
-  <SwiperSlide> <div className={styles.categories_options}>
-          <img src={womnes} alt="kids" />
-          <p>Women Style</p>
-          <p style={{ color: "#FFCC01" }}>2023</p>
-        </div></SwiperSlide>
-  <SwiperSlide> <div className={styles.categories_options}>
-          <img src={latest} alt="kids" />
-          <p>Latest Fashion</p>
-          <p>2023</p>
-        </div></SwiperSlide>
-  <SwiperSlide> <div className={styles.categories_options}>
-          <img src={sports} alt="kids" />
-          <p>Sportswear</p>
-          <p style={{ color: "#FFCC01" }}>2023</p>
-        </div></SwiperSlide>
-  <SwiperSlide> 
-        <div className={styles.categories_options}>
-          <img src={formal} alt="Formalwear" />
-          <p>Formalwear</p>
+        <Swiper
+          breakpoints={
+            {
+              100: {
+                slidesPerView: 2,
+                spaceBetween: 0,
+              },
+              500: {
+                slidesPerView: 4,
+                spaceBetween: 10
+              },
+              768: {
+                slidesPerView: 5,
+                spaceBetween: 20
+              },
+              1024: {
+                slidesPerView: 7,
+                spaceBetween: 20
+              }
+            }
+          }
+        >
+          <SwiperSlide>
+            <div className={styles.categories_options}>
+              <img src={kids} alt="kids" />
+              <p>Kids Hub</p>
+              <p>2023</p>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className={styles.categories_options}>
+              <img src={mens} alt="kids" />
+              <p>Men Style</p>
+              <p>2023</p>
+            </div></SwiperSlide>
+          <SwiperSlide> <div className={styles.categories_options}>
+            <img src={womnes} alt="kids" />
+            <p>Women Style</p>
+            <p style={{ color: "#FFCC01" }}>2023</p>
+          </div></SwiperSlide>
+          <SwiperSlide> <div className={styles.categories_options}>
+            <img src={latest} alt="kids" />
+            <p>Latest Fashion</p>
+            <p>2023</p>
+          </div></SwiperSlide>
+          <SwiperSlide> <div className={styles.categories_options}>
+            <img src={sports} alt="kids" />
+            <p>Sportswear</p>
+            <p style={{ color: "#FFCC01" }}>2023</p>
+          </div></SwiperSlide>
+          <SwiperSlide>
+            <div className={styles.categories_options}>
+              <img src={formal} alt="Formalwear" />
+              <p>Formalwear</p>
 
-        </div></SwiperSlide>
-  <SwiperSlide> <div className={styles.categories_options}>
-          <img src={jacket} alt="Jacket" />
-          <p>Jacket</p>
-          <p style={{ color: "#FFCC01" }}>2023</p>
-        </div></SwiperSlide>
-  <SwiperSlide> <div className={styles.categories_options}>
-          <img src={jeans} alt="Jeans" />
-          <p>Jeans</p>
-          <p>2023</p>
-        </div></SwiperSlide>
-  <SwiperSlide> <div className={styles.categories_options}>
-          <img src={casual} alt="Activewear" />
-          <p>Activewear</p>
-          <p style={{ color: "#FFCC01" }}>2023</p>
-        </div></SwiperSlide>
-  <SwiperSlide> <div className={styles.categories_options}>
-          <img src={workwear} alt="kids" />
-          <p>Workwear</p>
-          <p>2023</p>
-        </div></SwiperSlide>
-  <SwiperSlide><div className={styles.categories_options}>
-          <img src={casual} alt="Casualwear" />
-          <p>Casualwear</p>
-          <p>2023</p>
-        </div></SwiperSlide>
-  <SwiperSlide>  
-        <div className={styles.categories_options}>
-          <img src={sesonal} alt="Seasonal clothing" />
-          <p >Seasonal clothing</p>
+            </div></SwiperSlide>
+          <SwiperSlide> <div className={styles.categories_options}>
+            <img src={jacket} alt="Jacket" />
+            <p>Jacket</p>
+            <p style={{ color: "#FFCC01" }}>2023</p>
+          </div></SwiperSlide>
+          <SwiperSlide> <div className={styles.categories_options}>
+            <img src={jeans} alt="Jeans" />
+            <p>Jeans</p>
+            <p>2023</p>
+          </div></SwiperSlide>
+          <SwiperSlide> <div className={styles.categories_options}>
+            <img src={casual} alt="Activewear" />
+            <p>Activewear</p>
+            <p style={{ color: "#FFCC01" }}>2023</p>
+          </div></SwiperSlide>
+          <SwiperSlide> <div className={styles.categories_options}>
+            <img src={workwear} alt="kids" />
+            <p>Workwear</p>
+            <p>2023</p>
+          </div></SwiperSlide>
+          <SwiperSlide><div className={styles.categories_options}>
+            <img src={casual} alt="Casualwear" />
+            <p>Casualwear</p>
+            <p>2023</p>
+          </div></SwiperSlide>
+          <SwiperSlide>
+            <div className={styles.categories_options}>
+              <img src={sesonal} alt="Seasonal clothing" />
+              <p >Seasonal clothing</p>
 
-        </div></SwiperSlide>
-  <SwiperSlide>
-        <div className={styles.categories_options}>
-          <img src={kids} alt="kids" />
-          <p>Kids Hub</p>
+            </div></SwiperSlide>
+          <SwiperSlide>
+            <div className={styles.categories_options}>
+              <img src={kids} alt="kids" />
+              <p>Kids Hub</p>
 
-        </div></SwiperSlide>
- 
-</Swiper>
+            </div></SwiperSlide>
 
-      
-       
-       
-      
-       
-       
-       
-       
-      
+        </Swiper>
+
+
+
+
+
+
+
+
+
+
 
       </div>
 
@@ -173,113 +209,163 @@ breakpoints={
           <button>Shop Now</button>
         </div>
         <div className={styles.products}>
-          <Swiper 
-          
+          <Swiper
+
             breakpoints={
               {
-                100:{
-                  slidesPerView: 1,
+                100: {
+                  slidesPerView: 2,
                   spaceBetween: 0,
                 },
-                320:{
-                  slidesPerView:3,
-                  spaceBetween:10
+                320: {
+                  slidesPerView: 2,
+                  spaceBetween: 10
                 },
-                768:{
-                  slidesPerView:4,
-                  spaceBetween:30
+                768: {
+                  slidesPerView: 3,
+                  spaceBetween: 30
                 },
-                1024:{
-                  slidesPerView:5,
-                  spaceBetween:30
+                1161: {
+                  slidesPerView: 4,
+                  spaceBetween: 30
+                },
+               
+                1410:{
+                  slidesPerView: 5,
+                  spaceBetween: 30
                 }
               }
             }
-           
+
             freeMode={true}
-           
+
             modules={[FreeMode]}
             className={styles.swiper}
           >
-            <SwiperSlide className={styles.swiper_slide}>
-              <div className={styles.singleproduct}>
-                <div> <img src="https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/1/8/tr:w-600,/185b269UDSHT0543_2.jpg?rnd=20200526195200" alt="shirt" /></div>
+           
 
-                <p>U.S. Polo Assn. Denim Co.</p>
-                <p>$29.99</p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiper_slide}>
-              <div className={styles.singleproduct}>
-                <div> <img src="https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/1/8/tr:w-600,/185b269UDSHT0543_2.jpg?rnd=20200526195200" alt="shirt" /></div>
+            {
+              loading? 
 
-                <p>U.S. Polo Assn. Denim Co.</p>
-                <p>$29.99</p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiper_slide}>
-              <div className={styles.singleproduct}>
-                <div> <img src="https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/1/8/tr:w-600,/185b269UDSHT0543_2.jpg?rnd=20200526195200" alt="shirt" /></div>
+                Skel.map((el,id)=>{
+                  return <SwiperSlide className={styles.swiper_slide} key={id}>
+                  <div className={styles.Skeletonmaindiv}>
+                    <Skeleton className={styles.Skeletondiv} >
 
-                <p>U.S. Polo Assn. Denim Co.</p>
-                <p>$29.99</p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiper_slide}>
-              <div className={styles.singleproduct}>
-                <div> <img src="https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/1/8/tr:w-600,/185b269UDSHT0543_2.jpg?rnd=20200526195200" alt="shirt" /></div>
 
-                <p>U.S. Polo Assn. Denim Co.</p>
-                <p>$29.99</p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className={styles.singleproduct}>
-                <div> <img src="https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/1/8/tr:w-600,/185b269UDSHT0543_2.jpg?rnd=20200526195200" alt="shirt" /></div>
+    
+                    </Skeleton>
+                    <SkeletonText mt={"10px"}></SkeletonText>
+                  </div>
+                </SwiperSlide>
+                })
 
-                <p>U.S. Polo Assn. Denim Co.</p>
-                <p>$29.99</p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className={styles.singleproduct}>
-                <div> <img src="https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/1/8/tr:w-600,/185b269UDSHT0543_2.jpg?rnd=20200526195200" alt="shirt" /></div>
+              : Products?.map((product)=>{
+                return <SwiperSlide className={styles.swiper_slide} key={product.id}>
+                <div className={styles.singleproduct}>
+                  <div> <img src={product.image} alt={product.title}/></div>
+  
+                  <p>{product.title}</p>
+                  <p>₹{product.price}</p>
+                </div>
+              </SwiperSlide>
+              })
 
-                <p>U.S. Polo Assn. Denim Co.</p>
-                <p>$29.99</p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className={styles.singleproduct}>
-                <div> <img src="https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/1/8/tr:w-600,/185b269UDSHT0543_2.jpg?rnd=20200526195200" alt="shirt" /></div>
+              
+            }
 
-                <p>U.S. Polo Assn. Denim Co.</p>
-                <p>$29.99</p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className={styles.singleproduct}>
-                <div> <img src="https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/1/8/tr:w-600,/185b269UDSHT0543_2.jpg?rnd=20200526195200" alt="shirt" /></div>
+            
 
-                <p>U.S. Polo Assn. Denim Co.</p>
-                <p>$29.99</p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className={styles.singleproduct}>
-                <div> <img src="https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/1/8/tr:w-600,/185b269UDSHT0543_2.jpg?rnd=20200526195200" alt="shirt" /></div>
 
-                <p>U.S. Polo Assn. Denim Co.</p>
-                <p>$29.99</p>
-              </div>
-            </SwiperSlide>
           </Swiper>
         </div>
       </div>
 
 
 
+      <div className={styles.Main_div}>
+        <div className={styles.griddivs}>
+          <div className={styles.griddivone}>
+            <div >
 
+            </div>
+            <div className={styles.inneroptions1}>
+
+              <h1>New Release</h1>
+              <p>Presenting new trends of 2023</p>
+              <div>
+                <button className={styles.full_rounded}>
+                  <span>2023 LookBook</span>
+                  <div className={`${styles.border} ${styles.full_rounded}`}></div></button>
+                <button>
+                  <div>
+                    <FaPlay />
+
+                    <p>
+                      Watch Trend
+                    </p>
+                  </div>
+
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className={styles.griddivtwo}>
+            <div>
+              <button >
+                <div>
+                  <FaPlay />
+
+                  <p>
+                    Watch Trend
+                  </p>
+                </div>
+              </button>
+              <div className={styles.trendy}>
+                <h1>Trendy Fashion</h1>
+                <div>
+                  New in town • Winter fashion
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className={styles.griddivthree}>
+            <button>
+              SUBSCRIBE
+            </button>
+            <div>
+              Subscribe newsletter and get news and deals offer.
+            </div>
+          </div>
+        </div>
+
+
+        <div className={styles.childposter}>
+          <button>Shop Now</button>
+        </div>
+
+
+
+        <div className={styles.textline}>
+          <p>Style Is A Way To Say Who You Are Without Having To Speak</p>
+          <div className={styles.bylogo}>
+            <div></div>
+            <img src={logo} alt="logo" />
+          </div>
+
+        </div>
+
+
+        <div className={styles.lastposterdiv}>
+          <img src={lastposter} alt="poster" />
+          <img src={mobilelastposter} alt="mobole" />
+        </div>
+
+
+
+      </div>
+
+      <Footer />
 
     </div>
   )
