@@ -1,15 +1,14 @@
 
-import React from 'react'
-import Product from './Product'
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./HomePage";
+import Product from "./Product";
 import Admin from "./Admin";
 import Login from "./Login";
 import Cart from './Cart';
 
-
 const MainRoutes = () => {
   return (
+
 
   <Routes>
 <Route path='/' element={<HomePage/>}/>
@@ -25,7 +24,7 @@ const MainRoutes = () => {
     </Routes>
   )
 
-};
 
+};
 
 export default MainRoutes;

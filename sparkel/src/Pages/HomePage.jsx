@@ -65,7 +65,6 @@ const HomePage = () => {
 
   return (
     <div>
-      <Navbar />
       <div className={styles.Main_div}>
         <img src={pcbanner} alt="banner" className={styles.pc_banner} />
         <img src={mobilebanner} alt="banner" className={styles.mobile_banner} />
