@@ -1,6 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap');
 
-
+.wholenavbar{
+    position: sticky;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    z-index: 999;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
 
 .navbar_main {
     display: flex;
@@ -8,6 +17,7 @@
     align-items: center;
     height: 65px;
     font-family: 'Balsamiq Sans', cursive;
+    position: sticky;
 }
 
 .logo {

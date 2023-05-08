@@ -26,7 +26,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const loggedIn = useSelector((state) => state);
   return (
-    <div>
+    <div className={styles.wholenavbar}>
       <div className={styles.navbar_main}>
         <Box className="logo-title">
           <img
@@ -38,7 +38,7 @@ const Navbar = () => {
         </Box>
 
         <Box className={styles.nav_links}>
-          <a href={"#"}>Home</a>
+          <a href={"/"}>Home</a>
           <a href={"#"}>About</a>
           <a href={"#"}>Collection</a>
           <a href={"#"}>Blog</a>
@@ -47,6 +47,7 @@ const Navbar = () => {
 
         <div className={styles.nav_icons}>
           <FiSearch />
+
 
           {loggedIn.loggedIn ? (
             <>
@@ -58,6 +59,7 @@ const Navbar = () => {
 
 
           <span className={styles.cart}>Cart(0)</span>
+
         </div>
 
         <div className={`${styles.menu_bar}`} id="hello">
