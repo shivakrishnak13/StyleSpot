@@ -35,6 +35,7 @@ import {
   ModalCloseButton,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 export default function Admin() {
   const toast = useToast();
   const initialState = {
@@ -48,7 +49,7 @@ export default function Admin() {
     image1: "",
     image2: "",
   };
-  const url = `http://localhost:3000/products`;
+  const url = `https://dapper-precious-sedum.glitch.me/products`;
   const navigate = useNavigate();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [product, setProduct] = useState(initialState);
@@ -70,8 +71,8 @@ export default function Admin() {
           discount: Math.floor(Math.random() * (50 - 20)) + 20,
           offer_price: Math.floor(
             product.price -
-            ((Math.floor(Math.random() * (50 - 20)) + 20) / 100) *
-            product.price
+              ((Math.floor(Math.random() * (50 - 20)) + 20) / 100) *
+                product.price
           ),
         }),
       });
@@ -86,10 +87,14 @@ export default function Admin() {
     }
   };
   useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((deta) => setData(deta));
-  });
+    getData();
+  }, []);
+  useEffect(() => {
+    getData();
+  }, [data]);
+  const getData = async () => {
+    await axios.get(url).then((res) => setData(res.data.reverse()));
+  };
   const onDelete = (e) => {
     toast({
       title: "Data Deleted.",
@@ -101,6 +106,7 @@ export default function Admin() {
     fetch(`${url}/${e}`, {
       method: "DELETE",
     });
+    getData();
   };
   const Aa = (e) => {
     fetch(`${url}/${e}`)
@@ -112,19 +118,19 @@ export default function Admin() {
       });
     setid(e);
   };
-  const onedit = (e) => {
-    e.preventDefault();
+  const onedit = () => {
+    // e.preventDefault();
     let obj = {
       title: etitle,
       price: +eprice,
       brand: ebrand,
     };
-    console.log(obj);
     fetch(`${url}/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(obj),
     });
+    getData();
     onClose();
     toast({
       position: "top-center",
@@ -152,11 +158,16 @@ export default function Admin() {
               gap: "3%",
             }}
           >
-            <img src={logo} alt="" onClick={()=>navigate('/')} style={{cursor:"pointer"}}/>
-            <Tab className="tab">
+            <img
+              src={logo}
+              alt=""
+              onClick={() => navigate("/")}
+              style={{ cursor: "pointer" }}
+            />
+            {/* <Tab className="tab">
               <MdSpaceDashboard />
               Dashboard
-            </Tab>
+            </Tab> */}
             <Tab className="tab">
               <IoMdAddCircle />
               Add Product
@@ -181,15 +192,12 @@ export default function Admin() {
               <DiGoogleAnalytics />
               Analyse
             </Tab>
-            <Tab className="tab"  onClick={()=>navigate('/')}>
+            <Tab className="tab" onClick={() => navigate("/")}>
               <HiOutlineLogout />
               Logout
             </Tab>
           </TabList>
-          <TabPanels sx={{ margin: "1%" }}>
-            <TabPanel id="dashboard">
-              <p>one!</p>
-            </TabPanel>
+          <TabPanels sx={{ margin: "2%" }}>
             <TabPanel className="addProduct">
               <form action="" onSubmit={formSubmit} id="form">
                 <input
@@ -393,7 +401,7 @@ export default function Admin() {
                       />
                       <Button
                         variant="ghost"
-                        onClick={onedit}
+                        onClick={() => onedit()}
                         sx={{
                           backgroundColor: "#bee3f8",
                           fontSize: "18px",

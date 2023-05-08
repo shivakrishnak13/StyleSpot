@@ -1,12 +1,32 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import { RiErrorWarningFill } from "react-icons/ri";
-import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
+import {
+  Tabs,
+  TabList,
+  TabPanels,
+  Tab,
+  TabPanel,
+  useDisclosure,
+  Button,
+} from "@chakra-ui/react";
 import { useToast } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { login } from "../Redux/AuthReducer/action";
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+} from "@chakra-ui/react";
 export default function Login() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const toast = useToast();
   const {
     register,
@@ -18,6 +38,14 @@ export default function Login() {
     handleSubmit: hS1,
     formState: { errors: errors1 },
   } = useForm();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [email, setemail] = useState();
+  const [password, setpassword] = useState();
+  let Handlelogin = (e) => {
+    e.preventDefault();
+    navigate("/admin");
+    onClose();
+  };
   const url = `https://dapper-precious-sedum.glitch.me/profile`;
   const onLoginSubmit = (dat) => {
     const email = dat.Email;
@@ -51,6 +79,8 @@ export default function Login() {
               duration: 2000,
               isClosable: true,
             });
+            dispatch(login(data));
+            navigate("/");
             document.getElementById("loginform").reset();
           }
         }
@@ -143,7 +173,7 @@ export default function Login() {
                   textDecoration: "underline",
                   cursor: "pointer",
                 }}
-                onClick={() => navigate("/admin")}
+                onClick={onOpen}
               >
                 Login As Admin
               </small>
@@ -234,17 +264,99 @@ export default function Login() {
           </TabPanel>
         </TabPanels>
       </Tabs>
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalCloseButton />
+          <ModalBody padding="15%" mt="auto">
+            <h1
+              class="login-title"
+              style={{
+                textAlign: "center",
+                paddingBottom: "20px",
+                fontSize: "30px",
+                fontWeight: "bold",
+              }}
+            >
+              Admin Login
+            </h1>
+            <form
+              class="login_form"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "20px",
+                fontSize: "20px",
+              }}
+            >
+              <div>
+                <label for="email">Email </label>
+                <br />
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="me@example.com"
+                  name="email"
+                  required
+                  style={{
+                    backgroundColor: "transparent",
+                    height: "50px",
+                    marginTop: "15px",
+                    marginBottom: "10px",
+                    border: "1px solid",
+                    padding: "10px",
+                    borderRadius: "10px",
+                    width:"100%"
+
+                  }}
+                  onChange={(e) => setemail(e.target.value)}
+                />
+              </div>
+              <div>
+                <label for="password">Password </label>
+                <br />
+                <input
+                  id="password"
+                  type="password"
+                  placeholder="Password"
+                  name="password"
+                  required
+                  style={{
+                    backgroundColor: "transparent",
+                    height: "50px",
+                    marginTop: "15px",
+                    marginBottom: "10px",
+                    border: "1px solid",
+                    padding: "10px",
+                    borderRadius: "10px",
+                    width:"100%"
+                  }}
+                  onChange={(e) => setpassword(e.target.value)}
+                />
+              </div>
+              <Button
+                background="black"
+                _hover={{ bg: "black" }}
+                onClick={Handlelogin}
+                color="white"
+              >
+                Log in
+              </Button>
+            </form>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
     </DIV>
   );
 }
 const DIV = styled.div`
-  background-color: #000004;
-  height: 100vh;
+  background-color: white;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
   #modal {
-    border: 2px solid white;
+    border: 2px solid black;
     padding: 20px;
     width: 30%;
     display: flex;
@@ -252,7 +364,7 @@ const DIV = styled.div`
     align-items: center;
     button {
       width: 150px;
-      color: white;
+      color: black;
     }
     button[aria-selected="true"] {
       background-color: #f76f22;
@@ -263,7 +375,7 @@ const DIV = styled.div`
     #ca {
       display: flex;
       flex-direction: column;
-      color: white;
+      color: black;
       input {
         background-color: transparent;
         height: 50px;
@@ -277,10 +389,10 @@ const DIV = styled.div`
         width: 50%;
         margin: auto;
         margin-top: 15px;
-        color: #f76f22;
+        color: white;
         border-radius: 50px;
         border: 0;
-        background-color: white;
+        background-color: #f76f22;
         font-size: 18px;
         font-weight: 700;
         height: 40px;

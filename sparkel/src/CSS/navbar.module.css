@@ -31,11 +31,11 @@
 }
 
 .nav_icons {
-    width: 8%;
+    width:max-content;
     display: flex;
     justify-content: space-between;
     margin-right: 30px;
-
+    gap: 10px;
 }
 
 .menu_bar {
