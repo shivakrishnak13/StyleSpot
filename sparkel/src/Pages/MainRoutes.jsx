@@ -1,14 +1,11 @@
 
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-import HomePage from './HomePage'
 import Product from './Product'
-
-import React from "react";
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./HomePage";
 import Admin from "./Admin";
 import Login from "./Login";
+import Cart from './Cart';
 
 
 const MainRoutes = () => {
@@ -21,8 +18,11 @@ const MainRoutes = () => {
 <Route path='/blog' element={<HomePage/>}/>
 <Route path='/fashion' element={<HomePage/>}/>
 <Route path='/product' element={<Product/>}/>
-    </Routes>
+<Route path='/cart' element={<Cart/>}/>
+<Route path='/login' element={<Login/>}/>
+<Route path='/admin' element={<Admin/>}/>
 
+    </Routes>
   )
 
 };

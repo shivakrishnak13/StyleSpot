@@ -23,14 +23,14 @@ const Navbar = () => {
   };
 
   return (
-    <div>
+    <div className={styles.wholenavbar}>
       <div className={styles.navbar_main}>
         <Box className="logo-title">
           <img src={logo} alt="logo" className={styles.logo} />
         </Box>
 
         <Box className={styles.nav_links}>
-          <a href={"#"}>Home</a>
+          <a href={"/"}>Home</a>
           <a href={"#"}>About</a>
           <a href={"#"}>Collection</a>
           <a href={"#"}>Blog</a>
@@ -40,7 +40,7 @@ const Navbar = () => {
         <div className={styles.nav_icons}>
           <FiSearch />
           <FiUsers onClick={() => navigate("/login")} />
-          <span className={styles.cart}>Cart(0)</span>
+          <span className={styles.cart}  onClick={() => navigate("/cart")}>Cart(0)</span>
         </div>
 
         <div className={`${styles.menu_bar}`} id="hello">
