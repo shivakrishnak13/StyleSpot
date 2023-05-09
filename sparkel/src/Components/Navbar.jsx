@@ -41,7 +41,7 @@ const Navbar = () => {
         <Box className={styles.nav_links}>
           <a href={"/"}>Home</a>
           <a href={"#"}>About</a>
-          <a href={"#"}>Collection</a>
+          <a href={"/products"}>Collection</a>
           <a href={"#"}>Blog</a>
           <a href={"#"}>Fashion</a>
         </Box>
@@ -59,10 +59,6 @@ const Navbar = () => {
           )}
 
 
-          <span onClick={()=>{
-            navigate("/cart")
-
-          }} className={styles.cart}>Cart(0)</span>
 
         </div>
 
@@ -88,7 +84,7 @@ const Navbar = () => {
               <MenuItem icon={<FcAbout/>} >
               About
               </MenuItem>
-              <MenuItem icon={<BsCollectionFill/>}  >
+              <MenuItem icon={<BsCollectionFill/>} onClick={()=>navigate("/products")} >
               Collection
               </MenuItem>
               <MenuItem icon={<FaBlog/>} >
