@@ -1,0 +1,32 @@
+{
+  "cart": [
+    {
+      "title": "Men Embroidered Long Kurta",
+      "category": "Kurta",
+      "price": 2300,
+      "brand": "MAX",
+      "image": "https://lmsin.net/cdn-cgi/image/h=831,w=615,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/max/1000012398852-Black-BLACK-1000012398852_01-2100.jpg",
+      "rating": "4",
+      "image1": "https://lmsin.net/cdn-cgi/image/h=831,w=615,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/max/1000012398852-Black-BLACK-1000012398852_02-2100.jpg",
+      "image2": "https://lmsin.net/cdn-cgi/image/h=831,w=615,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/max/1000012398852-Black-BLACK-1000012398852_04-2100.jpg",
+      "gender": "Male",
+      "discount": "15",
+      "offer_price": "1000",
+      "id": 3
+    },
+    {
+      "title": "Men Striped Slim Fit Casual Shirt",
+      "category": "Shirt",
+      "price": "1200",
+      "brand": "Zara",
+      "image": "https://lmsin.net/cdn-cgi/image/h=831,w=615,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/max/1000011057969-Green-GREEN-1000011057969-07042022_01-2100.jpg",
+      "rating": "4",
+      "image1": "https://lmsin.net/cdn-cgi/image/h=831,w=615,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/max/1000011057969-Green-GREEN-1000011057969-07042022_02-2100.jpg",
+      "image2": "https://lmsin.net/cdn-cgi/image/h=831,w=615,q=60,fit=cover/https://aaeff43fe32172cbcecc-ae2a4e9a8cbc330ede5588dedf56886e.lmsin.net/max/1000011057969-Green-GREEN-1000011057969-07042022_03-2100.jpg",
+      "gender": "Male",
+      "discount": "10",
+      "offer_price": "1080",
+      "id": 6
+    }
+  ]
+}

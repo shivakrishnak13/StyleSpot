@@ -18,8 +18,9 @@ import {FaBlog} from "react-icons/fa";
 import {GiAmpleDress} from "react-icons/gi";
 
 const Navbar = () => {
+  const navigate=useNavigate()
   const [act, setect] = useState(false);
-  const navigate = useNavigate();
+ 
   const showOptions = () => {
     setect(!act);
   };
@@ -58,7 +59,6 @@ const Navbar = () => {
           )}
 
 
-          <span className={styles.cart} onClick={()=> navigate("/cart")}>Cart(0)</span>
 
         </div>
 
