@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react";
-import React, { memo, useState, useContext } from "react";
+import React, { memo, useState, useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FiSearch, FiUsers, FiLogOut } from "react-icons/fi";
 import { GrClose } from "react-icons/gr";
@@ -20,6 +20,15 @@ import {GiAmpleDress} from "react-icons/gi";
 const Navbar = () => {
   const navigate=useNavigate()
   const [act, setect] = useState(false);
+
+  const cartp = useSelector((store)=> store.Addtocart_reducer.Products);
+
+  const [carttotal,setcart]= useState(0)
+
+useEffect(()=>{
+setcart(cartp.length)
+},[cartp])
+
  
   const showOptions = () => {
     setect(!act);
@@ -39,9 +48,9 @@ const Navbar = () => {
         </Box>
 
         <Box className={styles.nav_links}>
-          <a href={"/"}>Home</a>
+          <a onClick={()=> navigate("/")}>Home</a>
           <a href={"#"}>About</a>
-          <a href={"/products"}>Collection</a>
+          <a onClick={()=> navigate("/products")} >Collection</a>
           <a href={"#"}>Blog</a>
           <a href={"#"}>Fashion</a>
         </Box>
@@ -58,7 +67,7 @@ const Navbar = () => {
             <FiUsers onClick={() => navigate("/login")} />
           )}
 
-
+    <span className={styles.cart} onClick={()=> navigate("/cart")}>Cart({carttotal})</span>
 
         </div>
 
@@ -87,8 +96,8 @@ const Navbar = () => {
               <MenuItem icon={<BsCollectionFill/>} onClick={()=>navigate("/products")} >
               Collection
               </MenuItem>
-              <MenuItem icon={<FaBlog/>} >
-              Blog
+              <MenuItem icon={<FaBlog/>} onClick={()=> navigate("/cart")} >
+              Cart
               </MenuItem>
               <MenuItem icon={<GiAmpleDress/>} >
               Fashion

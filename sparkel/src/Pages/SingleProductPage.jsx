@@ -8,10 +8,16 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Addtocart_action } from '../Redux/Cart/action';
+import {Wrap,WrapItem,Button,useToast }from "@chakra-ui/react";
+
+
+
 function SingleProductPage() {
  
-
-  
+  const toast = useToast()
+  const dispatch = useDispatch();
 
 const {id} = useParams();
   const [data,setProduct]= useState([])
@@ -27,17 +33,16 @@ const {id} = useParams();
 
     fetchproduct()
   },[])
-  const addtocart= async()=>{
- try {
-  const res=  await axios.post("https://mock-api-x1tu.onrender.com/cart",data)
-  console.log(res)
-  return res.data
-  
- } catch (error) {
-  console.log(error)
- }
- alert("Product added to cart succesefully")
+
+
+
+  const addtocart= ()=>{
+     dispatch(Addtocart_action(data,1));
+    
   }
+
+
+
 
   console.log(data)
   return (
@@ -69,7 +74,27 @@ const {id} = useParams();
   <div>Check delivery</div>
 </div>
 <div className='addtocart'>
-  <button onClick={addtocart}>By this Product</button>
+{/* <button onClick={addtocart}>By this Product</button> */}
+
+  <Wrap>
+      
+        <WrapItem className='addtocart' >
+          <Button 
+            onClick={() => {
+              addtocart();
+              toast({
+                title: `Product Added`,
+                status: "success",
+                isClosable: true,
+              })
+            }}
+          >
+           Add to Cart
+          </Button>
+        </WrapItem>
+      
+    </Wrap>
+
 <TfiHeart />
 </div>
 
@@ -103,6 +128,11 @@ const {id} = useParams();
 
   </div>
   </div>
+
+
+ 
+
+
     </div>
    
     

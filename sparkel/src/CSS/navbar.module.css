@@ -38,6 +38,7 @@
 .nav_links>a {
     color: black;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .nav_icons {
@@ -46,6 +47,7 @@
     justify-content: space-between;
     margin-right: 30px;
     gap: 10px;
+    cursor: pointer;
 }
 
 .menu_bar {

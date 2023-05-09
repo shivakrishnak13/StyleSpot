@@ -1,10 +1,17 @@
 import style from "../../CSS/cart.module.css"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 export default function TotalPrice({total}){
+
+
     const [amount,setAmount]=useState(0);
     const [coupoun,setCoupoun]=useState("")
-    const navigate=useNavigate()
+    const navigate=useNavigate();
+
+
+    useEffect(()=>{
+setAmount(total+199);
+    },[total])
 
     const applyCoupoun=()=>{
         if(coupoun==="masai30"){
@@ -14,6 +21,8 @@ export default function TotalPrice({total}){
         }
        // setCoupoun("");
     }
+
+    
 
     const handleChange = (e) =>{
         setCoupoun(e.target.value);
@@ -46,7 +55,7 @@ export default function TotalPrice({total}){
             </div>
             <div className={style.total} style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
                 <p className="total-text">Total</p>
-                <h2 className="total-price">${amount?amount+199:0}</h2>
+                <h2 className="total-price">${amount}</h2>
             </div>
             <div className={style.button}  >
                 <button className={style.button_text} onClick={handleClick} >Buy This Product</button>

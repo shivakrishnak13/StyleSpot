@@ -56,7 +56,7 @@ setGen(e.target.value);
     <h3>{page}</h3>
      <button onClick={nextPaginate}>Next</button>
      </div>
-     <Footer/>
+    
         </DIV>
     )
 }
