@@ -1,21 +1,22 @@
 import styled from "styled-components"
+import {useNavigate} from 'react-router-dom'
 
+export default function ProductCard({image,title,price,id}){
+let navigate=useNavigate()
 
-export default function ProductCard({image,title,price}){
-
-
-
+function red(){
+navigate(`/product/:${id}`);
+}
 
 
 
 
     //returning product cards for product list
 return (
-    <DIV>
+    <DIV onClick={()=>{red()}}>
 <img src={image} alt="failed" />
-<h2>{title}</h2>
+<h2>{title.includes('https')===true?'T-shirt Style Spot':title}</h2>
 <h3>₹{price}</h3>
-<button>ADD TO CART</button>
     </DIV>
 )
 

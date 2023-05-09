@@ -9,14 +9,13 @@ import Navbar from "./Components/Navbar";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css"
 
-
-
-
 import MainRoutes from "./Pages/MainRoutes";
+import Product from "./Pages/Product";
+
 function App() {
   return (
     <div className="App">
-<Product/>
+<MainRoutes/>
     </div>
   );
 }
