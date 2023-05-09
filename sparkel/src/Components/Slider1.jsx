@@ -1,8 +1,9 @@
+import { position } from '@chakra-ui/react';
 import React, { useState } from 'react'
 
 
 import Slider from 'react-slick';
-// import Midsection from './Midsection';
+
 
  
 
@@ -11,21 +12,21 @@ import Slider from 'react-slick';
 
 
 
-function Slider1() {
+function Slider1({image1,image2}) {
   
   
   const data=[
     {
-      image:"https://diesel.gumlet.io/product/410291797001/665/410291797005_2.jpg?compress=true&q=70",
+      image: image1,
       
 
     },
     {
-      image:"https://diesel.gumlet.io/product/410291797001/665/410291797005_4.jpg?compress=true&q=70",
+      image:image2,
      
     },
     {
-        image:"https://diesel.gumlet.io/product/410291797001/665/410291797005_4.jpg?compress=true&q=70",
+        image:image1,
        
       },
     
@@ -86,14 +87,14 @@ function Slider1() {
 
 
   return (
-    <div className='slider'>
+    <div style={{width:"70%",marginLeft:"30px"}} className='slider'>
      
     <Slider {...settings}>
    
    {
     data.map((e,index)=>(
-      <div style={{paddingBottom:"500px"}} key={index}>
-<img width="60%" src={e.image}alt="" />
+      <div  key={index}>
+<img style={{marginTop:"20px",position:"relative",left:"100px",right:"100px"}} width="40%" src={e.image}alt="" />
      </div>
     
 

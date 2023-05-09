@@ -1,13 +1,18 @@
 
-import React from "react";
+
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./HomePage";
+import Product from "./Product";
 import Admin from "./Admin";
 import Login from "./Login";
-import Product from './Product'
+
+
 import SingleProductPage from "./SingleProductPage";
+
 const MainRoutes = () => {
   return (
+
+
 
   <Routes>
 <Route path='/' element={<HomePage/>}/>
@@ -16,12 +21,19 @@ const MainRoutes = () => {
 <Route path='/blog' element={<HomePage/>}/>
 <Route path='/fashion' element={<HomePage/>}/>
 <Route path='/product' element={<Product/>}/>
-<Route path="/product/:productId" element={<SingleProductPage/>} />
-    </Routes>
+<Route path='/cart' element={<Cart/>}/>
+<Route path='/login' element={<Login/>}/>
+<Route path='/admin' element={<Admin/>}/>
+<Route path='/products' element={<Product/>}/>
+<Route path='/product/:id' element={<SingleProductPage/>}/>
 
+
+
+
+    </Routes>
   )
 
-};
 
+};
 
 export default MainRoutes;
