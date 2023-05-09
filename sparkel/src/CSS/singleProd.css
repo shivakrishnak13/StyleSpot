@@ -41,9 +41,9 @@ font-weight: 600;
 
 .picture> img{
 
-     width: 70%;
+     width: 60%;
   height: 400px;
-  object-fit: cover;
+ 
   margin-left: 100px;
    
 }
@@ -167,44 +167,130 @@ font-weight: 600;
             gap:7px
         }
     }
-    /* css for slider
-    .slider {
-        position: relative;
-        width: 100%;
-        height: 400px;
-        overflow: hidden;
-      }
-      
-      .slider img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 20%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0;
-        transition: opacity 0.5s ease;
-      }
-      
-      .slider img.active {
-        opacity: 1;
-      }
-      
-      .prev-btn,
-      .next-btn {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 2rem;
-        background: none;
-        border: none;
-        cursor: pointer;
-      }
-      
-      .prev-btn {
-        left: 20px;
-      }
-      
-      .next-btn {
-        right: 20px;
-      } */
+   /* cartdatacss */
+  
+.Mainproductbox{
+    display: flex;
+    width: 80%;
+    border:1px dotted teal ;
+    margin: auto;
+    /* margin-top: 10%; */
+    gap: 30px;
+    margin-bottom:80px ;
+    
+  }
+  .producttnbox{
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border:2px solid rgb(43, 0, 255) ; */
+    margin: auto;
+    
+  }
+  .image{
+    width: 30%;
+  }
+  .prductbtn{
+    width: 50%;
+    height: 40px;
+    background-color: antiquewhite;
+    border-radius: 50%;
+    color: black;
+    font-size: 18px;
+
+    
+  }
+  .prductbtn:hover{
+    border-color: red;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+   }
+  
+  .productdetailbox{
+    display: flex;
+    width: 80%;
+    height: 250px;
+    /* border:8px solid black ; */
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    gap: 30px;
+    margin-bottom: 50px;
+  }
+  .paymentproductbox{
+    width: 35%;
+   padding-bottom: 6px;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px; */
+   /* border: 5px solid rgb(49, 35, 241); */
+  }
+  .pbox{
+    width: 80%;
+   text-align: start;
+   font-size: 18px;
+   padding-left: 5px;
+   border: 1px solid black;
+   margin: auto;
+   margin-left: 10px;
+  
+   }
+  .checkoutbtn{
+    background-color: yellow;
+    color: black;
+    font-size: 20px;
+    border-radius: 30px;
+    margin-left: 40px;
+    }
+  .checkoutbtn:hover{
+    background-color: rgb(48, 51, 232);
+    color: white;
+  }
+  .deletebtn{
+    color: white;
+    font-size: 20px;
+    background-color: rgb(232, 62, 62);
+    margin-top: 10px;
+  }
+  .deletebtn:hover{
+    color: black;
+    background-color: rgb(249, 226, 54);
+  }
+  .honeproduct{
+    font-size: 18px;
+  }
+  .pcardproduct{
+    font-size: 25px;
+    color: black;
+  }
+  .ptotal{
+    font-size: 18px;
+    color: black;
+  }
+  .ptotal:hover{
+    font-size: 40px;
+    color:green;
+    
+    
+  }
+  .ansqty{
+    margin-left: 15px;
+    margin-right: 20px;
+  }
+  .paymebtimageamazon{
+    /* border: 2px solid red; */
+    width: 70%;
+    margin-top: 10px;
+  }
+  .productdetailbox{
+    height:350px
+  }.paymebtimageamazon{
+    height:200px
+  }
+  .om5{
+    font-size: 20px;
+    color: teal;
+  }
+  .om5:hover{
+    color: Red;
+  }

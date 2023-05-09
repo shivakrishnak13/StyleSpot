@@ -4,39 +4,56 @@ import "../CSS/singleProd.css"
 import { TfiHeart} from "react-icons/tfi";
 
 import Slider1 from '../Components/Slider1';
+import { useEffect } from 'react';
+import axios from 'axios';
+import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 function SingleProductPage() {
+ 
 
-  let data=
-  {
-    
-    "title": "1956-SP STRAIGHT FIT WOMAN BLUE MEDIUM WASHED JEANS",
-    "image": ["https://diesel.gumlet.io/product/410291797001/665/410291797005_1.jpg?compress=true&q=70",
-    "https://diesel.gumlet.io/product/410291797001/665/410291797005_2.jpg?compress=true&q=70",
-  "https://diesel.gumlet.io/product/410291797001/665/410291797005_4.jpg?compress=true&q=70"],
-    "description": "Regular style with a high waist and straight leg. Channeling a rock-n-roll vibe, its authentic influences include a straight-cut leg and button fly. It's crafted from inside-out fabric and features side bands along the length of the leg.",
-    "color": "blue",
-    "price": 22399,
-    "category": "jeans",
-    "gender":"woman",
-    "id": "1"
-   
-   }
+  
 
+const {id} = useParams();
+  const [data,setProduct]= useState([])
+  console.log(data)
+  useEffect(()=>{
+    const fetchproduct = ()=>{
+      axios.get(`https://dapper-precious-sedum.glitch.me/products/${id}`).then((res)=>{
+        setProduct(res.data)
+      }).catch((err)=>{
+        console.log(err)
+      })
+    }
 
+    fetchproduct()
+  },[])
+  const addtocart= async()=>{
+ try {
+  const res=  await axios.post("https://mock-api-x1tu.onrender.com/cart",data)
+  console.log(res)
+  return res.data
+  
+ } catch (error) {
+  console.log(error)
+ }
+ alert("Product added to cart succesefully")
+  }
+
+  console.log(data)
   return (
   <div>
     <div className='main'>
     
       
     <div className='picture'>
-<img  src={data.image} alt="" />
-  <div style={{marginBottom:"300px"}}><Slider1/></div>
+<img style={{marginTop:"40px",objectFit:"container"}} src={data.image} alt="" />
+  <div style={{marginBottom:"300px"}}><Slider1 image1={data.image1} image2={data.image2}/></div>
     </div>
-<div className='details'>
+<div style={{marginTop:"30px",marginRight:"200px"}} className='details'>
 <h1>{data.title}</h1>
 <h2>MRP ₹{data.price}</h2>
 <p>Price inclusive of all taxes</p>
-<h3>COLOR: {data.color.toUpperCase()}</h3>
+
 <h3>CHOOSE SIZE</h3>
 <div className='button-group'>
   <button>XS</button>
@@ -52,10 +69,10 @@ function SingleProductPage() {
   <div>Check delivery</div>
 </div>
 <div className='addtocart'>
-  <button>By this Product</button>
+  <button onClick={addtocart}>By this Product</button>
 <TfiHeart />
 </div>
-<h3>DESCRIPTION</h3>
+
 <p>{data.description}</p>
 </div>
 

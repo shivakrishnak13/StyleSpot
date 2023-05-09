@@ -30,7 +30,7 @@ import "../index.css";
 import Footer from '../Components/Footer';
 import axios from 'axios';
 import { Skeleton, SkeletonText,Menu,MenuButton,MenuList,MenuItem } from '@chakra-ui/react';
-
+  import { useNavigate } from 'react-router-dom';
 
 
 const HomePage = () => {
@@ -41,7 +41,7 @@ const HomePage = () => {
 
   let Skel= new Array(16).fill(0);
 
-  
+  const navugate = useNavigate()
 
   function getData() {
     setloading(true)
@@ -261,7 +261,7 @@ const HomePage = () => {
                 })
 
               : Products?.map((product)=>{
-                return <SwiperSlide className={styles.swiper_slide} key={product.id}>
+                return <SwiperSlide onClick={()=> navugate(`/product/${product.id}`)} className={styles.swiper_slide} key={product.id}>
                 <div className={styles.singleproduct}>
                   <div> <img src={product.image} alt={product.title}/></div>
   
@@ -365,7 +365,7 @@ const HomePage = () => {
 
       </div>
 
-      <Footer />
+    
 
     </div>
   )

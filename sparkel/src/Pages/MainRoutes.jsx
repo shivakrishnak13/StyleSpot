@@ -7,6 +7,7 @@ import Login from "./Login";
 
 import Cart from "./Cart"
 import Payment from "./Payment";
+import SingleProductPage from "./SingleProductPage";
 
 const MainRoutes = () => {
   return (
@@ -20,6 +21,7 @@ const MainRoutes = () => {
       <Route path="/Login" element={<Login />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/payment" element={<Payment />} />
+      <Route path="/product/:id" element={<SingleProductPage/>}/>
 
     </Routes>
   )
