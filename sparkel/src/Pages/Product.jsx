@@ -25,7 +25,7 @@ useEffect(()=>{
 
     return (
         <DIV>
-        <Navbar/>
+       
         <div className="Add">
            <img src={image} alt="" />
         </div>
