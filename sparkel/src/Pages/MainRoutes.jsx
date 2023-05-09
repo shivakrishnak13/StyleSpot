@@ -5,6 +5,7 @@ import Product from "./Product";
 import Admin from "./Admin";
 import Login from "./Login";
 import Cart from './Cart';
+import SingleProductPage from "./SingleProductPage";
 
 const MainRoutes = () => {
   return (
@@ -20,6 +21,8 @@ const MainRoutes = () => {
 <Route path='/cart' element={<Cart/>}/>
 <Route path='/login' element={<Login/>}/>
 <Route path='/admin' element={<Admin/>}/>
+<Route path='/products' element={<Product/>}/>
+<Route path='/product/:id' element={<SingleProductPage/>}/>
 
     </Routes>
   )
