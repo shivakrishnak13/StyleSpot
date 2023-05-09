@@ -37,7 +37,7 @@
     align-items: center;
     font-family: 'Balsamiq Sans', cursive;
     font-weight: bold;
-
+    cursor: pointer;
 }
 
 .categories_options>img {
@@ -130,7 +130,8 @@
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     margin-bottom: 50px;
 }
-.singleproduct>div{
+
+.singleproduct>div {
     height: 330px;
 }
 
@@ -151,7 +152,7 @@
 
 .singleproduct>p:nth-child(2) {
     font-size: 20px;
-   
+
     margin-top: 10px;
     width: 100%;
     white-space: nowrap;
@@ -171,12 +172,12 @@
     text-align: center;
     font-size: 18px;
     background: #fff;
-
+    cursor: pointer;
     /* Center slide text vertically */
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 }
 
 
@@ -324,16 +325,18 @@
     align-items: center;
 }
 
-.trendy{
+.trendy {
     margin-left: 5%;
     margin-top: 7%;
 }
-.trendy>h1{
+
+.trendy>h1 {
     font-size: 30px;
     font-weight: 500;
     font-family: 'Balsamiq Sans', cursive;
 }
-.trendy>div{
+
+.trendy>div {
     font-size: 20px;
     font-weight: 400;
     font-family: 'Balsamiq Sans', cursive;
@@ -341,12 +344,12 @@
 
 /*    grid 3rd div  */
 
-.griddivthree{
+.griddivthree {
     height: 150px;
     background-size: auto;
 }
 
-.griddivthree>button{
+.griddivthree>button {
     font-family: 'Balsamiq Sans', cursive;
     background-color: white;
     color: black;
@@ -359,7 +362,8 @@
     border-radius: 2rem;
     margin-top: 20px;
 }
-.griddivthree>div{
+
+.griddivthree>div {
     color: white;
     font-family: 'Balsamiq Sans', cursive;
     width: 45%;
@@ -372,15 +376,15 @@
 /**** Child Poster ****/
 
 
-.childposter{
+.childposter {
     width: 100%;
     height: 400px;
-    background-image:url("../images/child\ poster.png");
+    background-image: url("../images/child\ poster.png");
     background-size: cover;
     border-radius: 2rem;
 }
 
-.childposter>button{
+.childposter>button {
     width: 50%;
     height: 50px;
     border: 1px solid white;
@@ -392,27 +396,30 @@
     color: white;
     font-size: 20px;
     font-family: 'Balsamiq Sans', cursive;
-    
+
 }
 
-.lastposterdiv{
+.lastposterdiv {
     margin-top: 30px;
 }
-.lastposterdiv>img:nth-child(1){
+
+.lastposterdiv>img:nth-child(1) {
     height: 600px;
     border-radius: 6rem;
 
     margin: auto;
 }
-.lastposterdiv>img:nth-child(2){
+
+.lastposterdiv>img:nth-child(2) {
     display: none;
 }
 
-.Skeletonmaindiv{
+.Skeletonmaindiv {
     height: 550px;
-    
+
 }
-.Skeletondiv{
+
+.Skeletondiv {
     height: 400px;
 }
 
@@ -425,7 +432,7 @@
 
     .year>h1 {
         font-size: 15px;
-       
+
         font-family: 'Grandstander', cursive;
         color: black;
     }
@@ -559,13 +566,14 @@
         margin-top: 2%;
     }
 
-    .griddivthree{
-       grid-column-start: 1;
-       grid-column-end: 3;
-       grid-row-start: 2;
-       grid-row-end: 3;
+    .griddivthree {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 3;
     }
-    .griddivthree>button{
+
+    .griddivthree>button {
         font-family: 'Balsamiq Sans', cursive;
         background-color: white;
         color: black;
@@ -578,45 +586,49 @@
         border-radius: 2rem;
         margin-top: 10px;
     }
-    .griddivthree>div{
+
+    .griddivthree>div {
         color: white;
         font-family: 'Balsamiq Sans', cursive;
         width: 45%;
         margin-left: 6%;
         margin-top: 10px;
     }
+
     /**** Tab Child Poster ****/
 
 
-.childposter{
-    width: 100%;
-    height: 300px;
-    background-image:url("../images/child\ poster.png");
-    background-size: cover;
-  
-}
+    .childposter {
+        width: 100%;
+        height: 300px;
+        background-image: url("../images/child\ poster.png");
+        background-size: cover;
 
-.childposter>button{
-    width: 50%;
-    height: 40px;
-    border: 1px solid white;
-    border-radius: 2rem;
-    backdrop-filter: blur(100px);
-    position: relative;
-    left: 28%;
-    top: 80%;
-    color: white;
-    font-size: 15px;
-    font-family: 'Balsamiq Sans', cursive;
-    
-}
-.Skeletonmaindiv{
-    height: 300px;
-    
-}
-.Skeletondiv{
-    height: 220px;
-}
+    }
+
+    .childposter>button {
+        width: 50%;
+        height: 40px;
+        border: 1px solid white;
+        border-radius: 2rem;
+        backdrop-filter: blur(100px);
+        position: relative;
+        left: 28%;
+        top: 80%;
+        color: white;
+        font-size: 15px;
+        font-family: 'Balsamiq Sans', cursive;
+
+    }
+
+    .Skeletonmaindiv {
+        height: 300px;
+
+    }
+
+    .Skeletondiv {
+        height: 220px;
+    }
 }
 
 /* **************************** Mobile ************************************ */
@@ -661,22 +673,23 @@
         margin-bottom: 30px;
     }
 
-    .Skeletonmaindiv{
+    .Skeletonmaindiv {
         height: 300px;
 
     }
 
-    .singleproduct>div{
+    .singleproduct>div {
         height: 180px;
     }
-    
+
     .singleproduct>div>img {
         width: fit-content;
         height: 180px;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
-    
+
     }
+
     .singleproduct>p:nth-child(2) {
         font-size: 12px;
         font-weight: 400;
@@ -767,21 +780,24 @@
     .griddivs {
         margin-top: 50px;
         display: block;
-     
 
-       
+
+
 
     }
-    .trendy>h1{
+
+    .trendy>h1 {
         font-size: 20px;
         font-weight: 400;
         font-family: 'Balsamiq Sans', cursive;
     }
-    .trendy>div{
+
+    .trendy>div {
         font-size: 15px;
         font-weight: 300;
         font-family: 'Balsamiq Sans', cursive;
     }
+
     .griddivtwo>div>button {
         font-family: 'Balsamiq Sans', cursive;
         background: none;
@@ -795,7 +811,8 @@
         border-radius: 2rem;
         margin-top: 10px;
     }
-    .griddivthree>button{
+
+    .griddivthree>button {
         font-family: 'Balsamiq Sans', cursive;
         background-color: white;
         color: black;
@@ -808,7 +825,8 @@
         border-radius: 2rem;
         margin-top: 20px;
     }
-    .griddivthree>div{
+
+    .griddivthree>div {
         color: white;
         font-family: 'Balsamiq Sans', cursive;
         width: 45%;
@@ -816,53 +834,61 @@
         margin-top: 10px;
         font-size: 10px;
     }
-    .griddivs>div:nth-child(1){
+
+    .griddivs>div:nth-child(1) {
         margin-bottom: 10px;
     }
-    .griddivs>div:nth-child(2){
+
+    .griddivs>div:nth-child(2) {
         margin-bottom: 10px;
     }
-    .griddivthree{
+
+    .griddivthree {
         height: 120px;
     }
-    .griddivtwo>div>button{
+
+    .griddivtwo>div>button {
         width: 45%;
     }
+
     /**** Child Poster ****/
 
 
-.childposter{
-    width: 100%;
-    height: 200px;
-    background-image:url("../images/child\ poster.png");
-    background-size: contain;
-  margin-top: 30px;
-}
+    .childposter {
+        width: 100%;
+        height: 200px;
+        background-image: url("../images/child\ poster.png");
+        background-size: contain;
+        margin-top: 30px;
+    }
 
-.childposter>button{
-    width: 50%;
-    height: 30px;
-    border: 1px solid white;
-    border-radius: 2rem;
-    backdrop-filter: blur(100px);
-    position: relative;
-    left: 28%;
-    top: 80%;
-    color: white;
-    font-size: 10px;
-    font-family: 'Balsamiq Sans', cursive;
-    
-}
-.lastposterdiv>img:nth-child(1){
-    display: none;
-}
-.lastposterdiv>img:nth-child(2){
-    display: block;
-    border-radius: 2rem;
-}
-.Skeletondiv{
-   
-    height: 180px;
-}
+    .childposter>button {
+        width: 50%;
+        height: 30px;
+        border: 1px solid white;
+        border-radius: 2rem;
+        backdrop-filter: blur(100px);
+        position: relative;
+        left: 28%;
+        top: 80%;
+        color: white;
+        font-size: 10px;
+        font-family: 'Balsamiq Sans', cursive;
+
+    }
+
+    .lastposterdiv>img:nth-child(1) {
+        display: none;
+    }
+
+    .lastposterdiv>img:nth-child(2) {
+        display: block;
+        border-radius: 2rem;
+    }
+
+    .Skeletondiv {
+
+        height: 180px;
+    }
 
 }

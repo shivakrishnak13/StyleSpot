@@ -5,7 +5,7 @@ export default function ProductCard({image,title,price,id}){
 let navigate=useNavigate()
 
 function red(){
-navigate(`/product/:${id}`);
+navigate(`/product/${id}`);
 }
 
 

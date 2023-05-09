@@ -7,29 +7,29 @@ import Cartitem from "./Cartitem";
 
 
 export default function Cart(){
-    const[cart,setCart]=useState([])
-    const getdata=()=>{
-        axios.get("https://mock-api-x1tu.onrender.com/cart").then((res)=>{
-            console.log(res.data)
-            setCart(res.data)
-        }).catch((res)=>{
-            console.log(res)
-        })
-    }
-    useEffect(()=>{
-        getdata()
-    },[])
-    console.log(cart)
+    // const[cart,setCart]=useState([])
+    // const getdata=()=>{
+    //     axios.get("https://mock-api-x1tu.onrender.com/cart").then((res)=>{
+    //         console.log(res.data)
+    //         setCart(res.data)
+    //     }).catch((res)=>{
+    //         console.log(res)
+    //     })
+    // }
+    // useEffect(()=>{
+    //     getdata()
+    // },[])
+    // console.log(cart)
     return (
         <div>
-        <h1 style={{textAlign:"center"}} className={style.ordersummery}>Your Shopping Cart</h1>
+        {/* <h1 style={{textAlign:"center"}} className={style.ordersummery}>Your Shopping Cart</h1>
             {
                cart?.map((el)=>{
                return <Cartitem key={el.id} {...el} getdata={getdata}/>
                })
-            }
+            } */}
 
-            {/* <CheckOut/> */}
+            <CheckOut/>
         </div>
     )
 }

@@ -35,7 +35,7 @@ const data=[
       }
 ]
 const initdata={
-    Products:data||[]
+    Products: []
 }
 let Addtocart_reducer = (state = initdata, action) => {
     switch (action.type) {
@@ -47,8 +47,8 @@ let Addtocart_reducer = (state = initdata, action) => {
   
         break;
       case "INCREASE_QUANTITY":
-        const items = state.Products.map((e, i) => {
-          if (i === action.payload) {
+        const items = state.Products.map((e) => {
+          if (e.id=== action.payload) {
             e.qty += 1;
           }
           return e;
@@ -60,8 +60,8 @@ let Addtocart_reducer = (state = initdata, action) => {
         //localStorage.setItem("Cartdata1", JSON.stringify(items));
         break;
       case "DECREASE_QUANTITY":
-        const products = state.Products.map((e, i) => {
-          if (i === action.payload) {
+        const products = state.Products.map((e) => {
+          if (e.id === action.payload) {
             if (e.qty > 1) {
               e.qty -= 1;
             }
@@ -75,8 +75,8 @@ let Addtocart_reducer = (state = initdata, action) => {
         //localStorage.setItem("Cartdata1", JSON.stringify(products));
         break;
       case "RMV_CART":
-        const list = state.Products.filter((e, i) => {
-          return i !== action.payload;
+        const list = state.Products.filter((e) => {
+          return e.id !== action.payload;
         });
         state = {
           ...state,

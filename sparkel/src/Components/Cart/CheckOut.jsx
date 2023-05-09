@@ -6,13 +6,17 @@ import style from "../../CSS/cart.module.css"
 
 
 export default function CheckOut(){
-  const data = useSelector((state) => state.Products);
+
+
+  const data = useSelector((state) => state.Addtocart_reducer.Products);
    console.log(data)
   const dispatch = useDispatch()
-  const [total,setTotal]=useState(0)
+  const [total,setTotal]=useState(0);
+
+
   useEffect(()=>{
     const totalprice=data.reduce((acc,ele)=>{
-      return acc+ele.cost*ele.qty
+      return acc+ele.price*ele.qty
     },0);
     setTotal(totalprice)
 
@@ -94,7 +98,7 @@ export default function CheckOut(){
         {/* </div> */}
         <div style={{width:"70%"}}>
         <table style={{width:"100%"}} >
-          
+          <thead>
           <tr  className={style.tr1} >
             <th></th>
             <th>Product</th>
@@ -102,23 +106,26 @@ export default function CheckOut(){
             <th>Quantity</th>
             <th>Total</th>
           </tr>
-          {data.map((el,id)=>(
-          <tr className={style.tr2}  >
+          </thead>
+          <tbody>
+          {data?.map((el)=>(
+          <tr className={style.tr2} key={el.id} >
             
-            <td><img src={el.image_url} alt="el.name" style={{width:"70px",height:"70px",borderRadius:"12px"}} /></td>
-            <td><h3 >{el.name}</h3>
-              <button className={style.rmvbtn} onClick={()=>dlt(id)} >remove</button>
+            <td><img src={el.image} alt="el.name" style={{width:"70px",height:"70px",borderRadius:"12px"}} /></td>
+            <td><h3 >{el.title}</h3>
+              <button className={style.rmvbtn} onClick={()=>dlt(el.id)} >remove</button>
             </td>
-            <td><h3>{el.cost}</h3></td>
-            <td className={style.qunt} > <span className={style.decspan}  onClick={()=>remove(id)}>-</span>
+            <td><h3>{el.price}</h3></td>
+            <td className={style.qunt} > <span className={style.decspan}  onClick={()=>remove(el.id)}>-</span>
              <span className={style.quantitydisplay}>
               {el.qty}
              </span>
-             <span className={style.incspan}  onClick={()=>send(id)}>+</span></td>
-             <td><h3>{el.qty*el.cost}</h3></td>
+             <span className={style.incspan}  onClick={()=>send(el.id)}>+</span></td>
+             <td><h3>{el.qty*el.price}</h3></td>
           </tr>
 
           ))}
+          </tbody>
         </table>
         
         </div>

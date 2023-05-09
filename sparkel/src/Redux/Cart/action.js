@@ -1,16 +1,14 @@
-let Addtocart_action=(state,price,qty,dispatch)=>{
+ const Addtocart_action=(state,qty)=>(dispatch)=>{
     dispatch({
         type:"ADD_TO_CART",
         payload:{
-            state,
-            Actual_price:price,
-            qty
+            ...state,qty
         },
     })
 }
 
 const IncreasequantityAction = (payload) =>{
-    
+    console.log(payload)
     return{
         type:"INCREASE_QUANTITY", //then we call these fun in reducers
         payload

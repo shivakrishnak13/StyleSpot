@@ -4,7 +4,6 @@ import thunk from 'redux-thunk'
 import { loginReducer } from "./AuthReducer/reducer";
 import { applyMiddleware, combineReducers, legacy_createStore } from "redux"
 
-import thunk from "redux-thunk";
 
 const rootReducer = combineReducers({loginReducer,productReducer,Addtocart_reducer})
 
